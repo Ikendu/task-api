@@ -17,7 +17,7 @@ const {
 const app = express()
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'https://itaskme-api.onrender.com/'],
+    origin: ['http://localhost:5173', 'https://itaskme-api.onrender.com'],
   })
 )
 
