@@ -18,19 +18,25 @@ const app = express()
 
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'https://itaskme-api.onrender.com'],
+    origin: ['http://localhost:5173', 'https://itaskme.onrender.com'],
     credentials: true,
     headers: ['Content-Type'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
 )
-app.options('*', cors())
+// app.options('*', cors())
 
-app.all('/', function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With')
-  next()
-})
+// app.all('/', function (req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*')
+//   res.header('Access-Control-Allow-Headers', 'X-Requested-With')
+//   next()
+// })
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://itaskme.onrender.com')
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+//   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+//   next()
+// })
 
 //middleware
 app.use(express.json())
