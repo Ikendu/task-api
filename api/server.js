@@ -15,7 +15,11 @@ const {
 } = require('./controllers/taskControll')
 
 const app = express()
-app.use(cors())
+app.use(
+  cors({
+    origin: ['http://localhost:5173', 'https://itaskme-api.onrender.com/'],
+  })
+)
 
 //middleware
 app.use(express.json())
