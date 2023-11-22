@@ -15,12 +15,22 @@ const {
 } = require('./controllers/taskControll')
 
 const app = express()
+
 app.use(
   cors({
     origin: ['http://localhost:5173', 'https://itaskme-api.onrender.com'],
     credentials: true,
+    headers: ['Content-Type'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 )
+app.options('*', cors())
+
+app.all('/', function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With')
+  next()
+})
 
 //middleware
 app.use(express.json())
